@@ -1,0 +1,182 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+    color: #000;
+    padding: 2rem;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contenedor-contacto {
+  position: relative;
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  margin-left: calc(-50vw + 50%); /* Alineación si el contenido está centrado en el layout */
+  background-color: #000; /* Fondo negro */
+  padding: 3rem 2rem 4rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 300px;
+  color: #eee; /* Para que el texto se vea bien sobre fondo negro */
+}
+
+
+/* Columna izquierda */
+.info {
+    color: #fff;
+    flex: 1;
+    min-width: 250px;
+    margin-right: 2rem;
+}
+
+.info h3 {
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.info p {
+    margin-top: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Formulario flotante */
+.formulario {
+  position: absolute;
+  top: 50%; /* Centrado vertical */
+  right: 2rem; /* Margen desde el borde derecho */
+  transform: translateY(-50%); /* Centrado exacto */
+  background-color: #f2e9ec;
+  border-radius: 5px;
+  padding: 2rem;
+  min-width: 460px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 10;
+}
+
+
+/* Título del formulario */
+.formulario h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Contenedor del formulario */
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Inputs y textarea personalizados */
+.formulario input,
+.formulario textarea {
+    border: none;
+    border-bottom: 2px solid #000;
+    padding: 0.6rem;
+    background-color: transparent;
+    outline: none;
+    font-size: 1rem;
+}
+
+/* Botón del formulario */
+.formulario button {
+    padding: 0.3rem;
+    width: 20%;
+    background-color: transparent;
+    border: 2px solid #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.formulario button:hover {
+    background-color: #c59d5f;
+    color: #fff;
+    border: none;
+}
+
+/* Mensaje de respuesta */
+#respuesta {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Esto empuja el footer hacia abajo */
+}
+
+/* Footer fijo al final */
+.footer {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 1.5rem 2rem;
+  width: 100vw;              /* Ancho completo de la ventana */
+  margin-left: calc(-50vw + 50%); /* Corregir si está dentro de un contenedor centrado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.footer p {
+  margin: 0 auto;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 100%;
+}
+
+.footer .social-icons {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 1rem;
+}
+
+.footer .social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor-contacto {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .info, .formulario {
+        margin-right: 0;
+    }
+}

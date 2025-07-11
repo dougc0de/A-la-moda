@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contáctanos - A LA MODA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="StyleD/contacto.css">
+        <link rel="stylesheet" href="StyleD/index.css">
+</head>
+<body>
+        <nav class="navbar">
+            <div class="logo"><a href="./Index.html"><img src="RecursosD/Logotipo para Tienda de Ropa Elegante Blanco y Negro.png" alt="A LA MODA"></a></div>
+            <ul class="nav-links">
+                <li><a href="./sobreNosotros.html">SOBRE NOSOTROS</a></li>
+                <li><a href="./pagina1.html">CATÁLOGO-HOMBRES</a></li>
+                <li><a href="./pagina4.html">CATÁLOGO-MUJERES</a></li>
+                <li><a href="Contacto.html">CONTACTANOS</a></li>
+                <li><a href="./preguntasFrec.html">PREGUNTAS FRECUENTES</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar Artículos">
+            </div>
+        </nav>    
+    <main>
+    <section class="contacto">
+        <h2 class="titulo">CONTÁCTANOS</h2>
+
+        <div class="contenedor-contacto">
+            <div class="info">
+                <h3>LLÁMANOS</h3>
+                <p>+505 7677 1006</p>
+
+                <h3>UBICACIÓN</h3>
+                <p>Antigua Curacao de ciudad jardín 3<br>1/2C. Norte, Managua</p>
+
+                <h3>Horario de atención</h3>
+                <p>Lun - Vie. 7am - 5pm.<br>Sab - Dom. Cerrado</p>
+            </div>
+
+            <div class="formulario">
+                <h3>CONTÁCTENOS</h3>
+                <form id="formContacto">
+                    <input type="text" id="nombre" placeholder="Ingrese su nombre" required>
+                    <input type="email" id="correo" placeholder="Ingrese una dirección de correo válida" required>
+                    <textarea id="mensaje" rows="4" placeholder="Escriba su mensaje" required></textarea>
+                    <button type="submit">ENVIAR</button>
+                </form>
+                <p id="respuesta"></p>
+            </div>
+        </div>
+    </section>
+     </main>
+<footer class="footer">
+  <p>© 2025 A LA MODA. Todos los derechos reservados.</p>
+  <div class="social-icons">
+    <a href="#"><img src="RecursosD/facebook.jpg" alt="Facebook" /></a>
+    <a href="#"><img src="RecursosD/twitter.jpg" alt="Twitter" /></a>
+  </div>
+</footer>
+
+
+    <script>document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("formContacto");
+    const respuesta = document.getElementById("respuesta");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const mensaje = document.getElementById("mensaje").value.trim();
+
+        if (nombre === "" || correo === "" || mensaje === "") {
+            respuesta.textContent = "Por favor, completa todos los campos.";
+            respuesta.style.color = "red";
+            return;
+        }
+
+        // Simulación de envío
+        respuesta.textContent = "¡Mensaje enviado exitosamente!";
+        respuesta.style.color = "green";
+
+        // Limpiar campos
+        form.reset();
+    });
+});
+</script>
+</body>
+</html>

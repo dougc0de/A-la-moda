@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - A LA MODA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="StyleD/index.css">
+</head>
+<body>
+     <header>
+        <nav class="navbar">
+            <div class="logo"><a href="./Index.html"><img src="RecursosD/Logotipo para Tienda de Ropa Elegante Blanco y Negro.png" alt="A LA MODA"></a></div>
+            <ul class="nav-links">
+                <li><a href="./sobreNosotros.html">SOBRE NOSOTROS</a></li>
+                <li><a href="./pagina1.html">CATÁLOGO-HOMBRES</a></li>
+                <li><a href="./pagina4.html">CATÁLOGO-MUJERES</a></li>
+                <li><a href="Contacto.html">CONTACTANOS</a></li>
+                <li><a href="./preguntasFrec.html">PREGUNTAS FRECUENTES</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar Artículos">
+            </div>
+        </nav>
+    </header>
+    <main class="contenido">
+       <section class="blog-section contenido">
+  <div class="columna-izquierda">
+    <img src="RecursosD/Modelos.jpg" alt="Modelos" class="img-principal">
+    <p class="texto-blog">Conectamos con tu estilo. Explora un universo de tendencias y creatividad.</p>
+  </div>
+
+  <div class="columna-derecha">
+    <div class="bloque">
+      <img src="RecursosD/imagen4.jpg" alt="Pasarela">
+    </div>
+    <div class="bloque">
+        <p>Te guiamos con la opinión de experto para que expreses quien eres.</p>
+      <img src="RecursosD/Imagen2.jpg" alt="Logo A LA MODA">
+    </div>
+    <div class="bloque">
+      <img src="RecursosD/Imagen3.jpg" alt="Moda casual">
+      <p>Tu estilo, tu historia. Encuentra la inspiración diaria para expresarte.</p>
+    </div>
+  </div>
+</section>
+    </main>
+  <footer class="footer">
+  <p>© 2025 A LA MODA. Todos los derechos reservados.</p>
+  <div class="social-icons">
+    <a href="#"><img src="facebook.jpg" alt="Facebook" /></a>
+    <a href="#"><img src="twitter.jpg" alt="Twitter" /></a>
+  </div>
+</footer>
+   <script>
+// Esperar que cargue el DOM
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Scroll suave solo para enlaces internos con "#"
+    const enlaces = document.querySelectorAll("nav ul li a");
+    enlaces.forEach(enlace => {
+        enlace.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+
+            if (href.startsWith("#")) {
+                e.preventDefault();
+                const seccion = href.replace("#", "");
+                const destino = document.getElementById(seccion);
+                if (destino) {
+                    destino.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        });
+    });
+
+    // Simulación de búsqueda
+    const buscador = document.querySelector(".search-box input");
+    buscador.addEventListener("keyup", function () {
+        const texto = this.value.toLowerCase();
+        if (texto.length > 0) {
+            console.log("Buscando:", texto);
+            // Aquí puedes enlazar con backend en el futuro
+        }
+    });
+
+    // Validación básica al salir del input
+    buscador.addEventListener("blur", function () {
+        if (this.value.trim() === "") {
+            alert("Por favor, ingresa un término de búsqueda.");
+        }
+    });
+
+    // MENÚ HAMBURGUESA: mostrar/ocultar
+    const toggleButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggleButton.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    // Cerrar menú al hacer clic en un enlace (en móviles)
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
+    });
+});
+</script>
+
+</body>
+</html>
