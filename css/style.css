@@ -13,7 +13,7 @@
 .logo img{height:55px;width:auto}
 .search-box{flex:1;display:flex;justify-content:center}
 .search-box input{
-    width:100%;max-width:480px;
+    width:100%;max-width:200px;
     padding:0.5rem 1rem;border-radius:30px;border:1px solid #ccc;
 }
 

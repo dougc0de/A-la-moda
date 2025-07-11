@@ -1,0 +1,275 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    color: #000;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ENCABEZADO */
+header .top-header {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+header .top-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nav-links li a {
+    color: white;
+    padding: 0.5rem 0.8rem;
+    background-color: #c8102e;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: #a50d23;
+}
+
+.search-box input {
+    padding: 0.4rem 0.6rem;
+    border-radius: 5px;
+    border: none;
+}
+
+/* SECCIÓN BLOG */
+.blog-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 3rem;
+}
+
+.columna-izquierda {
+    flex: 1 1 55%;
+}
+
+.columna-derecha {
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.img-principal {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.texto-blog {
+    font-family: 'Italiana', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #000000;
+    text-align: left;
+}
+
+/* Bloques con imagen + texto al lado */
+.bloque {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bloque img {
+    width: 200px;
+    height: auto;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.bloque p {
+    font-family: 'Italiana', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #000000;
+    text-align: left;
+}
+
+/* TÍTULOS de secciones  */
+.section-title {
+    font-family: 'Italiana', serif;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+/* Bloque centrado solo con imagen (ej: logo) */
+.bloque.centro {
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.bloque.centro img {
+    width: 180px;
+    max-width: 100%;
+}
+
+/* FOOTER */
+.footer {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 1rem;
+  position: relative;
+  text-align: center;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0;
+  font-family: 'YourFontName', serif; /* Cambia según la tipografía que uses */
+}
+
+/* Iconos sociales posicionados a la derecha */
+.footer .social-icons {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 1rem;
+}
+
+.footer .social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Iconos blancos si son oscuros */
+}
+
+
+/* RESPONSIVE */
+/* Botón menú hamburguesa - oculto en desktop */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para menú desplegable en móvil */
+@media screen and (max-width: 768px) {
+
+  /* Ocultar menú y mostrar hamburguesa */
+  .nav-links {
+    position: fixed;
+    top: 60px; /* altura navbar, ajustar si cambias padding */
+    right: -250px; /* oculto fuera de pantalla */
+    background-color: #1a1a1a;
+    width: 200px;
+    height: 100vh;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    border-radius: 0 0 0 10px;
+  }
+
+  /* Cuando está activo */
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li {
+    text-align: right;
+  }
+
+  .nav-links li a {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    display: block;
+  }
+
+  /* Mostrar botón hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Centrar barra de búsqueda */
+  .search-box {
+    order: 3; /* que quede abajo del logo y hamburguesa */
+    width: 100%;
+    padding: 0 1rem;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .search-box input {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  /* Logo al inicio */
+  .logo {
+    order: 1;
+  }
+
+  /* Botón hamburguesa al final */
+  .menu-toggle {
+    order: 2;
+  }
+
+  .navbar {
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+}
