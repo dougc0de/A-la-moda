@@ -1,0 +1,149 @@
+/* ---------- RESET BÁSICO ---------- */
+*{box-sizing:border-box;margin:0;padding:0;font-family:inherit}
+
+/* ----------  ENCABEZADO  ---------- */
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    background:#151515;
+    padding:0.5rem 1rem;
+}
+.logo img{height:55px;width:auto}
+.search-box{flex:1;display:flex;justify-content:center}
+.search-box input{
+    width:100%;max-width:480px;
+    padding:0.5rem 1rem;border-radius:30px;border:1px solid #ccc;
+}
+
+/* ----------  DROPDOWN  ---------- */
+.dropdown{display:flex;padding:1rem 3rem;margin:0.5rem}
+
+/* ----------  HERO  ---------- */
+.hero{
+    display:flex;flex-wrap:wrap;gap:2rem;
+    margin:2rem 1rem;
+}
+.heroImg{
+  flex:0 0 70%;   /*  grow 0  shrink 0  basis 65 %  → NO se encoge */
+  min-height:420px;
+
+}
+.heroImg img{width:100%; height:100%;
+  object-fit:cover;}
+.infoseccionSobreNos{
+    flex:1 1 30%;display:flex;flex-direction:column;gap:1.2rem; margin-left: 20px; align-items: center;
+}
+
+.titulo{display:flex;justify-content:center; max-width: 400px;}
+.titulo img{max-width:100%;height:auto}
+
+/* ----------  TEXTO HERO  ---------- */
+.historia h3,
+.MyV h3{font-size:1.1rem;margin-bottom:0.4rem; text-align: center;}
+.historia p,
+.MyV p{font-size:0.9rem;line-height:1.4}
+
+/* ----------  CREADORES  ---------- */
+.creadores{margin:3rem 1rem;display:flex;flex-direction:column;gap:2rem; justify-content: center; align-items: center;}
+.titulocreadores{font-family:'Italiana',serif;font-size:2rem;}
+.contenidoCreadores{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;
+    width:80%;background:#f0f0f0;padding:2rem; align-items: center;
+}
+.cr{
+    flex:1 1 220px;max-width:260px;
+    background:#fff;padding:1rem;
+    display:flex;flex-direction:column;align-items:center;text-align:center
+}
+.imagenc img{width:100%;height:auto;border-radius:6px}
+.textCreadores h3{font-size:1rem;margin:0.5rem 0}
+.textCreadores p{font-size:0.9rem}
+
+/* ----------  PIE DE PÁGINA  ---------- */
+footer{
+    background:#151515;color:#fff;text-align:center;
+    padding:1rem;display:flex;flex-wrap:wrap;gap:0.5rem; justify-content: center;
+}
+footer .redes{
+    display:flex;gap:1rem;position: absolute; right: 1%;
+}
+footer .redes a img{width:24px;height:24px}
+
+.heroImg,
+.infoseccionSobreNos{
+  flex:1 1 500px;   /* 1 1 480px  = grow | shrink | basis */
+}
+
+#pageSelect {
+    padding: 5px;
+    background-color: #EC221F;
+    color: white;
+    border: none;
+    text-align: center;
+}
+
+/* ---------- ITEM con líneas ---------- */
+.faq-item{
+  position:relative;            /* ancla para los pseudoelementos   */
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:1.5rem;
+}
+
+/*  Línea base (horizontal)  */
+.faq-item::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:120px;
+  height:2px;
+  background:#000;
+  transform:translateY(-50%);
+  transition:transform .4s ease;      /* animación opcional */
+}
+
+/*  Línea lateral (vertical)  */
+.faq-item::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:2px;
+  height:90px;
+  background:#000;
+  transform:translateY(-50%);
+  transition:transform .4s ease;      /* animación opcional */
+}
+
+/* ---------- Posicionamiento por paridad ---------- */
+.faq-item:nth-child(odd)::before{   left:-130px; }  /* imagen a la izq. */
+.faq-item:nth-child(odd)::after {  left:-10px;   }
+
+.faq-item:nth-child(even){
+  flex-direction:row-reverse;       /* texto-imagen */
+}
+.faq-item:nth-child(even)::before{  right:-130px; }
+.faq-item:nth-child(even)::after {  right:-10px; }
+
+/* ---------- Ajusta tamaño/espacio sin breakpoints ---------- */
+.faq-item img{ flex:0 0 240px; width:100%; max-width:240px; height:auto; }
+.faq-box     { flex:1 1 300px; }
+
+/* ---------- Animación al abrir ---------- */
+details:not([open]) +                    /* línea retraída cuando está cerrado */
+.faq-item::before,
+details:not([open]) + 
+.faq-item::after{
+  transform:translateY(-50%) scaleX(0);
+  transform-origin:center;
+}
+
+details[open] +                          /* se “dibujan” al abrir */
+.faq-item::before,
+details[open] + 
+.faq-item::after{
+  transform:translateY(-50%) scaleX(1);
+}
