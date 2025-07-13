@@ -106,6 +106,20 @@
     </footer>
 
 <script src="./js/paginaActual.js" ></script>
+    <script>    
+    const toggleButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
+    toggleButton.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    // Cerrar menú al hacer clic en un enlace (en móviles)
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
+    });
+</script>
 </body>
 </html>

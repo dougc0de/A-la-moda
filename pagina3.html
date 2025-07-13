@@ -163,21 +163,18 @@
             <a href="#"><img src="recursos -Y/twitter.jpg" alt="Twitter" /></a>
         </div>
     </footer>
-     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const toggle = document.getElementById("dropdownToggle");
-        const menu = document.getElementById("dropdownMenu");
+    <script>    
+    const toggleButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-        toggle.addEventListener("click", function (e) {
-            e.stopPropagation(); // Previene que se cierre de inmediato
-            menu.style.display = (menu.style.display === "block") ? "none" : "block";
-        });
+    toggleButton.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
 
-        // Cierra el menú si haces clic fuera
-        document.addEventListener("click", function (e) {
-            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-                menu.style.display = "none";
-            }
+    // Cerrar menú al hacer clic en un enlace (en móviles)
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
         });
     });
 </script>

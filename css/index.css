@@ -106,7 +106,8 @@ header .top-header h1 {
     line-height: 100%;
     letter-spacing: 0;
     color: #000000;
-    text-align: lefcenter;
+    align-items: center;
+    
 }
 
 /* Bloques con imagen + texto al lado */
